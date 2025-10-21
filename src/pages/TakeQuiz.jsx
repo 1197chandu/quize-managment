@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-import QuizResult from "./QuizeResult";
+import QuizResult from "../components/QuizResult";
 
 function TakeQuiz() {
   const { id } = useParams();
