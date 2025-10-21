@@ -3,10 +3,9 @@ import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import TakeQuiz from "./pages/TakeQuiz";
 import Login from "./pages/login";
+import ProtectedRoute from "./components/ProtectedRoutes";
 
 const App = () => {
-  const isAdmin = localStorage.getItem("isAdmin");
-
   return (
     <BrowserRouter>
       <Routes>
@@ -15,7 +14,11 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route
           path="/admin"
-          element={isAdmin ? <Admin /> : <Navigate to="/login" />}
+          element={
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          }
         />
       </Routes>
     </BrowserRouter>
